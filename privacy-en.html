@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,84 +10,105 @@
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
-      line-height: 1.6;
-      color: #333;
+      line-height: 1.7;
+      color: #222;
     }
     h1, h2 { color: #111; }
-    ul { padding-left: 20px; }
+    ul { padding-left: 22px; }
     a { color: #0066cc; }
-    hr { margin: 40px 0; }
+    .language-switch {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    hr { margin: 40px 0; border: none; border-top: 1px solid #ddd; }
   </style>
 </head>
 <body>
 
+<div class="language-switch">
+  <a href="index.html">Versión en español</a> · <a href="terms.html#en">Terms of Use</a>
+</div>
+
 <h1>Privacy Policy</h1>
-<p><strong>Effective Date:</strong> June 8, 2026</p>
+<p><strong>Effective date:</strong> October 16, 2026 (app version 1.2)</p>
 
-<p>This Privacy Policy describes how <strong>Apunta</strong> (the "App"), operated by JHON MORENO ("we", "us", or "our"), collects, uses, and protects your information.</p>
+<p>This Privacy Policy describes how the <strong>Apunta</strong> app (the “App”), operated by JHON MORENO (“we”), handles and protects your information.</p>
 
-<h2>1. What Data We Collect</h2>
-<p>Apunta is designed to be <strong>local-first</strong>. Most of your data never leaves your device.</p>
+<p><strong>In short:</strong> your expenses are encrypted on your iPhone before they leave it (end-to-end encryption). We store that encrypted information to back it up and sync it, but we cannot read it. We do not sell your data or track you.</p>
 
+<h2>1. Your account</h2>
+<p>To use the App you sign in with <strong>Sign in with Apple</strong> or <strong>Google</strong>. The account exists to back up your notebook in the cloud, restore it if you change or lose your iPhone and, with Apunta Pro, sync it across your devices.</p>
 <ul>
-  <li><strong>Expense data</strong> (amounts, categories, descriptions): Stored locally on your device using SwiftData. Never sent to our servers.</li>
-  <li><strong>Receipt photos</strong>: Stored only on your device. Not uploaded to any server.</li>
-  <li><strong>Expense text you type</strong>: When you write in natural language (e.g. "coffee 6000, uber 12000"), this text is sent in real-time to DeepSeek AI through a secure proxy (Cloudflare Workers). The proxy <strong>does not store</strong> your text or any personal data — it only forwards it and returns the structured result.</li>
-  <li><strong>Location data</strong>: Used only on your device to trigger local reminders when you visit stores (geofencing). Location data is <strong>never transmitted</strong> to any server.</li>
-  <li><strong>App preferences</strong> (language, currency, theme): Stored locally in UserDefaults.</li>
-  <li><strong>Device identifiers</strong>: Collected by Google AdMob to display ads to free users. This is handled according to AdMob’s own privacy policy.</li>
+  <li>From Apple or Google we only keep an opaque account identifier. <strong>We do not store your name or email address.</strong></li>
+  <li>We create an internal user ID and per-device sign-in sessions (device type, app version and usage dates). Session tokens are stored hashed.</li>
+  <li>If you use Sign in with Apple, we store the token Apple gives us in encrypted form, only so we can revoke it when you delete your account.</li>
 </ul>
 
-<h2>2. How We Use Your Information</h2>
+<h2>2. Your financial data: end-to-end encrypted</h2>
 <ul>
-  <li>To interpret your natural language expenses using AI and categorize them automatically.</li>
-  <li>To generate monthly statistics and insights (all processed locally).</li>
-  <li>To show relevant local reminders based on your location (on-device only).</li>
-  <li>To display non-intrusive banner ads to users without an active subscription (via AdMob).</li>
+  <li><strong>Expenses, income, categories, budgets, accounts, payment methods and other records</strong> are stored on your device. When they are backed up or synced, they are encrypted on your iPhone with a key only you control (AES-GCM) before being sent.</li>
+  <li><strong>Receipt photos</strong> are stored on your device. With Apunta Pro they are included in the backup, also end-to-end encrypted.</li>
+  <li>Our server only receives encrypted data and technical metadata (size, date and number of records or files). <strong>We cannot read your expenses.</strong></li>
+  <li>Your encryption key is stored protected in your account. You can optionally create a recovery code in Settings.</li>
 </ul>
 
-<h2>3. Data Storage &amp; Third Parties</h2>
-<p><strong>We do not store your financial data, photos, or expense history on any server.</strong></p>
-
-<p>The only data that leaves your device is:</p>
+<h2>3. Data processed only on your device</h2>
 <ul>
-  <li>Expense text sent to <strong>DeepSeek AI</strong> via our Cloudflare Workers proxy (the proxy does not log or store any user data).</li>
-  <li>Device identifiers collected by <strong>Google AdMob</strong> for advertising purposes.</li>
+  <li><strong>Location</strong>: if you turn on location reminders, the App detects visits to stores on your iPhone to remind you to log an expense. Location is <strong>not sent</strong> to our servers. Apple Maps is used to look up the place name.</li>
+  <li><strong>Voice and photos</strong>: dictation, receipt scanning and photos are processed on your device with iOS features.</li>
+  <li><strong>Ask Apunta</strong> and the monthly analysis are calculated on your iPhone (Apple Intelligence when available).</li>
+  <li><strong>Preferences</strong> (language, currency, appearance, reminders) and the interpretation of what you type with the on-device parser.</li>
 </ul>
 
-<p>Third-party services we use:</p>
+<h2>4. Cloud AI interpretation (optional)</h2>
+<p>If the on-device parser can’t understand what you typed and you allow it, <strong>the text you just typed</strong> (for example, “coffee 6, uber 12”) is sent to <strong>DeepSeek</strong> through our Cloudflare Workers proxy to interpret it. Your history, account and device data are not sent, and the proxy does not store the text. You can withdraw this permission at any time in Settings; without it, everything is interpreted on your iPhone.</p>
+
+<h2>5. Subscriptions</h2>
+<p>Apunta Pro purchases are processed by Apple. To enable Pro on your account and devices, we store the subscription status Apple reports to us (product, status, expiration date and original transaction ID). We do not receive your payment details.</p>
+
+<h2>6. Ads</h2>
+<p>People without Apunta Pro see banner ads from <strong>Google AdMob</strong>. We request <strong>non-personalized ads</strong>, and the App does not ask for permission to track you or use Apple’s advertising identifier (IDFA). Google may collect device data, approximate location, ad interactions and diagnostics according to its <a href="https://policies.google.com/technologies/partner-sites" target="_blank">policy</a>. In the European Economic Area, the United Kingdom and Switzerland we ask for your consent with Google’s form, and you can change it in Settings › Legal.</p>
+
+<h2>7. Service providers</h2>
 <ul>
-  <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google AdMob</a> – for displaying ads to free users.</li>
-  <li><a href="https://www.deepseek.com/" target="_blank">DeepSeek AI</a> – for natural language processing of expenses (via secure proxy that does not retain data).</li>
+  <li><strong>Apple</strong>: sign-in, purchases and maps.</li>
+  <li><strong>Google</strong>: Google sign-in and ads (AdMob).</li>
+  <li><strong>Cloudflare</strong>: network and protection for our server and AI proxy.</li>
+  <li><strong>Hosting provider</strong> where we host our database and the encrypted backups.</li>
+  <li><strong>DeepSeek</strong>: only if you allow cloud AI interpretation.</li>
+</ul>
+<p>We do not sell or share your data for advertising. Our server does not keep IP addresses in its logs.</p>
+
+<h2>8. Retention</h2>
+<ul>
+  <li>On the free plan we keep your latest backup; with Apunta Pro, the last 30.</li>
+  <li>If your Pro subscription ends, sync data is deleted from the server after 180 days (your backup is kept).</li>
+  <li>When you delete your account, your data is erased after a 7-day grace period (immediately if the account is empty), and server backups are purged within 35 days.</li>
 </ul>
 
-<h2>4. No User Accounts</h2>
-<p>Apunta does <strong>not</strong> require login, registration, email, or any personal account. All functionality works entirely on your device.</p>
-
-<h2>5. Your Rights</h2>
-<p>You can:</p>
+<h2>9. Your rights and how to delete your account</h2>
 <ul>
-  <li>Request deletion of any data we may hold (contact us at the email below).</li>
-  <li>Stop all data collection by simply uninstalling the App.</li>
-  <li>Disable location-based reminders or ads at any time in the App settings.</li>
+  <li><strong>Delete your account and all your data</strong> in the App: Settings › Account &amp; backup › Delete account. If you used Sign in with Apple, we revoke the access with Apple.</li>
+  <li>Export your data as CSV, Excel or PDF from Settings.</li>
+  <li>Withdraw the cloud AI permission, turn off location reminders and change your ad consent in Settings.</li>
+  <li>Request access, correction or deletion by emailing us.</li>
 </ul>
 
-<h2>6. Children’s Privacy</h2>
-<p>The App is not intended for children under 16. We do not knowingly collect personal information from children.</p>
+<h2>10. Children’s privacy</h2>
+<p>The App is not directed to children under 13. We do not knowingly collect personal information from children.</p>
 
-<h2>7. Security</h2>
-<p>We take reasonable measures to protect the information processed by the App. Since most data stays on your device, the main security relies on your device’s own protections (Face ID, passcode, etc.).</p>
+<h2>11. Security</h2>
+<p>We use end-to-end encryption for your financial data, HTTPS connections and encrypted storage of credentials. You can also protect the App with Face ID or your passcode.</p>
 
-<h2>8. Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the effective date and, when required, requesting your consent.</p>
+<h2>12. Changes to this policy</h2>
+<p>We may update this policy. We will let you know about important changes by updating the effective date and, when appropriate, in the App.</p>
 
-<h2>9. Contact Us</h2>
-<p>If you have any questions about this Privacy Policy or your data, please contact us at:</p>
-<p><strong>bufe-torrecilla-3j@icloud.com</strong></p>
+<h2>13. Contact</h2>
+<p>If you have questions about this policy or your data, email us at:</p>
+<p><strong>jhonm.moreno@gmail.com</strong></p>
 
 <hr>
-<p><em>This Privacy Policy was last updated on June 8, 2026.</em></p>
+<p><em>Last updated: October 16, 2026.</em></p>
 
 </body>
 </html>
-

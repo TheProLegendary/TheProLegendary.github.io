@@ -26,75 +26,89 @@
 <body>
 
 <div class="language-switch">
-  <a href="privacy-en.html">English version</a>
+  <a href="privacy-en.html">English version</a> · <a href="terms.html">Términos de uso</a>
 </div>
 
 <h1>Política de Privacidad</h1>
-<p><strong>Fecha de vigencia:</strong> 8 de junio de 2026</p>
+<p><strong>Fecha de vigencia:</strong> 16 de octubre de 2026 (versión 1.2 de la App)</p>
 
-<p>Esta Política de Privacidad describe cómo la aplicación <strong>Apunta</strong> (en adelante, la “App”), operada por JHON MORENO (“nosotros”, “nos” o “nuestro”), recopila, utiliza y protege tu información.</p>
+<p>Esta Política de Privacidad describe cómo la aplicación <strong>Apunta</strong> (en adelante, la “App”), operada por JHON MORENO (“nosotros”), trata y protege tu información.</p>
 
-<h2>1. Qué datos recopilamos</h2>
-<p>Apunta está diseñada para funcionar principalmente de forma local en tu dispositivo. La mayoría de tus datos nunca salen de tu iPhone.</p>
+<p><strong>En resumen:</strong> tus gastos se cifran en tu iPhone antes de salir de él (cifrado de extremo a extremo). Nosotros guardamos esa información cifrada para respaldarla y sincronizarla, pero no podemos leerla. No vendemos tus datos ni te rastreamos.</p>
 
+<h2>1. Tu cuenta</h2>
+<p>Para usar la App debes iniciar sesión con <strong>Iniciar sesión con Apple</strong> o con <strong>Google</strong>. La cuenta existe para respaldar tu libreta en la nube, recuperarla si cambias o pierdes tu iPhone y, con Apunta Pro, sincronizarla entre tus dispositivos.</p>
 <ul>
-  <li><strong>Datos de gastos</strong> (montos, categorías y descripciones): Se guardan únicamente en tu dispositivo usando SwiftData. Nunca se envían a nuestros servidores.</li>
-  <li><strong>Fotos de recibos</strong>: Se almacenan solo en tu dispositivo. No se suben a ningún servidor.</li>
-  <li><strong>Texto de gastos que escribes</strong>: Cuando escribes en lenguaje natural (ej: “café 6000, uber 12000”), este texto se envía en tiempo real a la IA de DeepSeek a través de un proxy seguro (Cloudflare Workers). El proxy <strong>no almacena</strong> tu texto ni ningún dato personal, solo lo reenvía y devuelve el resultado estructurado.</li>
-  <li><strong>Datos de ubicación</strong>: Se usan únicamente en tu dispositivo para activar recordatorios locales cuando visitas tiendas o comercios (geofencing). La ubicación <strong>nunca se transmite</strong> a ningún servidor.</li>
-  <li><strong>Preferencias de la app</strong> (idioma, moneda, tema): Se guardan localmente en UserDefaults.</li>
-  <li><strong>Identificadores del dispositivo</strong>: Recopilados por Google AdMob para mostrar anuncios a usuarios sin suscripción. Esto se maneja según la política de privacidad de AdMob.</li>
+  <li>De Apple o Google solo guardamos un identificador opaco de tu cuenta. <strong>No guardamos tu nombre ni tu correo electrónico.</strong></li>
+  <li>Creamos un identificador interno de usuario y sesiones de acceso por dispositivo (tipo de dispositivo, versión de la App y fechas de uso). Los tokens de sesión se guardan cifrados con una función hash.</li>
+  <li>Si usas Iniciar sesión con Apple, guardamos cifrado el token que Apple nos entrega, solo para poder revocarlo cuando eliminas tu cuenta.</li>
 </ul>
 
-<h2>2. Cómo usamos tu información</h2>
+<h2>2. Tus datos financieros: cifrados de extremo a extremo</h2>
 <ul>
-  <li>Interpretar tus gastos escritos en lenguaje natural usando IA y categorizarlos automáticamente.</li>
-  <li>Generar estadísticas e informes mensuales (todo procesado localmente en tu dispositivo).</li>
-  <li>Mostrar recordatorios locales basados en tu ubicación (solo en el dispositivo).</li>
-  <li>Mostrar anuncios en formato banner a usuarios sin suscripción activa (a través de AdMob).</li>
+  <li><strong>Gastos, ingresos, categorías, presupuestos, cuentas, métodos de pago y demás registros</strong> se guardan en tu dispositivo. Cuando se respaldan o sincronizan, se cifran en tu iPhone con una llave que solo tú controlas (AES-GCM) antes de enviarse.</li>
+  <li><strong>Fotos de recibos</strong>: se guardan en tu dispositivo. Con Apunta Pro se incluyen en el respaldo, también cifradas de extremo a extremo.</li>
+  <li>Nuestro servidor solo recibe datos cifrados y metadatos técnicos (tamaño, fecha y cantidad de registros o archivos). <strong>No podemos leer tus gastos.</strong></li>
+  <li>Tu llave de cifrado se guarda protegida en tu cuenta. Opcionalmente puedes crear un código de recuperación desde Ajustes.</li>
 </ul>
 
-<h2>3. Almacenamiento de datos y terceros</h2>
-<p><strong>No almacenamos tus datos financieros, fotos ni historial de gastos en ningún servidor.</strong></p>
-
-<p>La única información que sale de tu dispositivo es:</p>
+<h2>3. Datos que se procesan solo en tu dispositivo</h2>
 <ul>
-  <li>El texto de los gastos enviado a <strong>DeepSeek AI</strong> a través de nuestro proxy en Cloudflare Workers (este proxy no guarda ni registra ningún dato del usuario).</li>
-  <li>Identificadores del dispositivo recopilados por <strong>Google AdMob</strong> con fines publicitarios.</li>
+  <li><strong>Ubicación</strong>: si activas los recordatorios por ubicación, la App detecta visitas a comercios en tu iPhone para recordarte anotar un gasto. La ubicación <strong>no se envía</strong> a nuestros servidores. Para saber el nombre del lugar se usa el servicio de mapas de Apple.</li>
+  <li><strong>Voz y fotos</strong>: el dictado, el escaneo de recibos y las fotos se procesan en tu dispositivo con las funciones de iOS.</li>
+  <li><strong>Pregúntale a Apunta</strong> y el análisis del mes se calculan en tu iPhone (Apple Intelligence cuando está disponible).</li>
+  <li><strong>Preferencias</strong> (idioma, moneda, apariencia, recordatorios) y la interpretación de lo que escribes con el analizador local.</li>
 </ul>
 
-<p>Servicios de terceros que utilizamos:</p>
+<h2>4. Interpretación con IA en la nube (opcional)</h2>
+<p>Si el analizador local no entiende lo que escribiste y tú lo autorizas, el <strong>texto que acabas de escribir</strong> (por ejemplo, “café 6000, uber 12000”) se envía a <strong>DeepSeek</strong> a través de nuestro proxy en Cloudflare Workers para interpretarlo. No se envía tu historial, tu cuenta ni datos del dispositivo, y el proxy no guarda el texto. Puedes retirar este permiso en cualquier momento desde Ajustes; sin él, todo se interpreta en tu iPhone.</p>
+
+<h2>5. Suscripciones</h2>
+<p>Las compras de Apunta Pro las procesa Apple. Para activar Pro en tu cuenta y en tus dispositivos guardamos el estado de tu suscripción (producto, estado, fecha de vencimiento e identificador de la transacción original) que nos informa Apple. No recibimos tus datos de pago.</p>
+
+<h2>6. Anuncios</h2>
+<p>Las personas sin Apunta Pro ven anuncios tipo banner de <strong>Google AdMob</strong>. Solicitamos <strong>anuncios no personalizados</strong> y la App no te pide permiso para rastrearte ni usa el identificador de publicidad de Apple (IDFA). Google puede recopilar datos del dispositivo, ubicación aproximada, interacción con los anuncios y diagnósticos según su <a href="https://policies.google.com/technologies/partner-sites" target="_blank">política</a>. En el Espacio Económico Europeo, el Reino Unido y Suiza te pedimos tu consentimiento con el formulario de Google, y puedes cambiarlo en Ajustes › Legal.</p>
+
+<h2>7. Proveedores</h2>
 <ul>
-  <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google AdMob</a> – para mostrar anuncios a usuarios gratuitos.</li>
-  <li><a href="https://www.deepseek.com/" target="_blank">DeepSeek AI</a> – para procesar el lenguaje natural de tus gastos (a través de un proxy seguro que no retiene datos).</li>
+  <li><strong>Apple</strong>: inicio de sesión, compras y mapas.</li>
+  <li><strong>Google</strong>: inicio de sesión con Google y anuncios (AdMob).</li>
+  <li><strong>Cloudflare</strong>: red y protección de nuestro servidor y proxy de IA.</li>
+  <li><strong>Proveedor de servidores</strong> donde alojamos nuestra base de datos y los respaldos cifrados.</li>
+  <li><strong>DeepSeek</strong>: solo si autorizas la interpretación con IA en la nube.</li>
+</ul>
+<p>No vendemos ni compartimos tus datos con fines publicitarios. Nuestro servidor no guarda direcciones IP en sus registros.</p>
+
+<h2>8. Conservación</h2>
+<ul>
+  <li>En el plan gratis conservamos tu último respaldo; con Apunta Pro, los últimos 30.</li>
+  <li>Si tu suscripción Pro termina, los datos de sincronización se eliminan del servidor tras 180 días (tu respaldo se mantiene).</li>
+  <li>Al eliminar tu cuenta, tus datos se borran tras un periodo de gracia de 7 días (al instante si la cuenta está vacía), y las copias de seguridad del servidor se depuran en un máximo de 35 días.</li>
 </ul>
 
-<h2>4. No tenemos cuentas de usuario</h2>
-<p>Apunta <strong>no requiere</strong> registro, inicio de sesión, correo electrónico ni ninguna cuenta personal. Toda la funcionalidad funciona completamente en tu dispositivo.</p>
-
-<h2>5. Tus derechos</h2>
-<p>Puedes:</p>
+<h2>9. Tus derechos y cómo eliminar tu cuenta</h2>
 <ul>
-  <li>Solicitar la eliminación de cualquier dato que tengamos (contáctanos al correo que aparece abajo).</li>
-  <li>Detener toda recopilación de datos simplemente desinstalando la App.</li>
-  <li>Desactivar los recordatorios por ubicación o los anuncios en cualquier momento desde los ajustes de la App.</li>
+  <li><strong>Eliminar tu cuenta y todos tus datos</strong> desde la App: Ajustes › Cuenta y respaldo › Eliminar cuenta. Si usaste Iniciar sesión con Apple, revocamos el acceso con Apple.</li>
+  <li>Exportar tus datos en CSV, Excel o PDF desde Ajustes.</li>
+  <li>Retirar el permiso de IA en la nube, desactivar recordatorios por ubicación y cambiar tu consentimiento de anuncios desde Ajustes.</li>
+  <li>Solicitar acceso, corrección o eliminación escribiéndonos al correo de contacto.</li>
 </ul>
 
-<h2>6. Privacidad de menores</h2>
-<p>La App no está dirigida a menores de 16 años. No recopilamos intencionalmente información personal de niños.</p>
+<h2>10. Privacidad de menores</h2>
+<p>La App no está dirigida a menores de 13 años. No recopilamos intencionalmente información personal de niños.</p>
 
-<h2>7. Seguridad</h2>
-<p>Tomamos medidas razonables para proteger la información que procesa la App. Como la mayoría de los datos permanecen en tu dispositivo, la seguridad principal depende de las protecciones de tu iPhone (Face ID, código de acceso, etc.).</p>
+<h2>11. Seguridad</h2>
+<p>Usamos cifrado de extremo a extremo para tus datos financieros, conexiones HTTPS y almacenamiento cifrado de credenciales. También puedes proteger la App con Face ID o tu código.</p>
 
-<h2>8. Cambios en esta política</h2>
-<p>Podemos actualizar esta Política de Privacidad ocasionalmente. Te notificaremos de cambios importantes actualizando la fecha de vigencia y, cuando sea necesario, solicitando tu consentimiento.</p>
+<h2>12. Cambios en esta política</h2>
+<p>Podemos actualizar esta política. Te avisaremos de los cambios importantes actualizando la fecha de vigencia y, cuando corresponda, dentro de la App.</p>
 
-<h2>9. Contacto</h2>
-<p>Si tienes preguntas sobre esta Política de Privacidad o sobre tus datos, puedes contactarnos en:</p>
-<p><strong>bufe-torrecilla-3j@icloud.com</strong></p>
+<h2>13. Contacto</h2>
+<p>Si tienes preguntas sobre esta política o sobre tus datos, escríbenos a:</p>
+<p><strong>jhonm.moreno@gmail.com</strong></p>
 
 <hr>
-<p><em>Esta Política de Privacidad fue actualizada por última vez el 8 de junio de 2026.</em></p>
+<p><em>Última actualización: 16 de octubre de 2026.</em></p>
 
 </body>
 </html>
