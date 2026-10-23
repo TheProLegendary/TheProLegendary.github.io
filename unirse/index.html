@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Únete a la libreta en pareja · Apunta</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: #FFF8EC radial-gradient(#D9CDB8 1.2px, transparent 1.3px) 0 0/22px 22px;
+      font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1F1A14; }
+    .card { background: #fff; border: 3px solid #1F1A14; border-radius: 26px; box-shadow: 5px 5px 0 #1F1A14;
+      padding: 28px 24px; margin: 20px; max-width: 420px; text-align: center; }
+    .heart { width: 64px; height: 64px; border-radius: 18px; border: 3px solid #1F1A14; background: #FF6FA5;
+      display: inline-grid; place-items: center; font-size: 30px; }
+    h1 { font-size: 26px; margin: 16px 0 8px; }
+    p { font-weight: 600; color: #6B5F50; line-height: 1.5; }
+    .code { font-family: ui-monospace, Menlo, monospace; font-weight: 800; font-size: 18px; letter-spacing: 1px;
+      background: #FFF8EC; border: 2px dashed #C9BBA3; border-radius: 14px; padding: 12px; margin: 16px 0; word-break: break-all; }
+    a.btn { display: block; text-decoration: none; font-weight: 900; font-size: 18px; color: #1F1A14; background: #FFC824;
+      border: 3px solid #1F1A14; border-radius: 18px; box-shadow: 4px 4px 0 #1F1A14; padding: 14px; margin-top: 14px; }
+    a.btn.secondary { background: #fff; }
+    small { display: block; margin-top: 16px; color: #6B5F50; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="heart">❤️</div>
+    <h1 id="title">Te invitaron a una libreta en pareja</h1>
+    <p id="lead">Abre Apunta para unirte. Si aún no la tienes, descárgala y vuelve a tocar el enlace.</p>
+    <div class="code" id="code"></div>
+    <a class="btn" id="open" href="#">Abrir en Apunta</a>
+    <a class="btn secondary" id="store" href="https://apps.apple.com/app/id6778129772">Descargar Apunta</a>
+    <small id="note">El código va solo en este enlace: no pasa por ningún servidor.</small>
+  </div>
+  <script>
+    // El código va después de «#»: el navegador no lo envía a ningún servidor.
+    var code = decodeURIComponent((location.hash || "").slice(1)).replace(/[^A-Za-z0-9-]/g, "").toUpperCase();
+    var texts = {
+      en: ["You've been invited to a shared couple notebook", "Open Apunta to join. If you don't have it yet, download it and tap the link again.", "Open in Apunta", "Download Apunta", "The code lives only in this link: it never goes through any server."],
+      pt: ["Você foi convidado para um caderno do casal", "Abra o Apunta para entrar. Se ainda não tem o app, baixe e toque no link de novo.", "Abrir no Apunta", "Baixar o Apunta", "O código fica só neste link: não passa por nenhum servidor."],
+      fr: ["Tu es invité·e à un carnet à deux", "Ouvre Apunta pour le rejoindre. Si tu ne l'as pas encore, télécharge-la puis touche à nouveau le lien.", "Ouvrir dans Apunta", "Télécharger Apunta", "Le code reste dans ce lien : il ne passe par aucun serveur."],
+      de: ["Du wurdest zu einem gemeinsamen Paarheft eingeladen", "Öffne Apunta, um beizutreten. Falls du die App noch nicht hast, lade sie und tippe erneut auf den Link.", "In Apunta öffnen", "Apunta laden", "Der Code steckt nur in diesem Link und geht über keinen Server."],
+      it: ["Sei stato invitato a un quaderno di coppia", "Apri Apunta per unirti. Se non ce l'hai ancora, scaricala e tocca di nuovo il link.", "Apri in Apunta", "Scarica Apunta", "Il codice è solo in questo link: non passa da nessun server."]
+    };
+    var lang = (navigator.language || "es").slice(0, 2);
+    var t = texts[lang];
+    if (t) {
+      document.documentElement.lang = lang;
+      ["title", "lead", "open", "store", "note"].forEach(function (id, i) { document.getElementById(id).textContent = t[i]; });
+    }
+    document.getElementById("code").textContent = code || "—";
+    var appURL = "apunta://unirse?code=" + encodeURIComponent(code);
+    document.getElementById("open").href = appURL;
+    if (code) { setTimeout(function () { location.href = appURL; }, 300); }
+  </script>
+</body>
+</html>
