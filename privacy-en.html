@@ -72,6 +72,10 @@
   <li><strong>Phrases the on-device parser can’t understand</strong>: only the text you just typed is sent (for example, “coffee 6, uber 12”).</li>
   <li><strong>Bank alerts (purchases and income)</strong>: the text of each alert you pass to Apunta is sent, to read what it was, the merchant or who paid you and the category, even in an unknown format.</li>
   <li><strong>Merchant names</strong> of Apple Pay payments: only the merchant name is sent, to show its real name and pick the category. The answer is remembered on your iPhone.</li>
+  <li><strong>Categories for what you type</strong>: if the on-device parser leaves an expense under “Other”, only its description (for example, “gym fee”) is sent, without the amount.</li>
+  <li><strong>Monthly tips</strong>: in the monthly summary, the totals already calculated on your iPhone (month spending and income, totals by category and budgets exceeded) are sent so the AI can write tips. Your list of transactions is not sent.</li>
+  <li><strong>Subscriptions</strong>: only the names of charges that repeat every month are sent, without amounts, to tell which ones are subscriptions.</li>
+  <li><strong>Screenshots with several transactions</strong>: the text read on your iPhone from a screenshot of your bank is sent to split it into transactions.</li>
   <li><strong>Receipts the on-device reader can’t understand</strong>: a reduced photo of the receipt and the text read on the iPhone are sent.</li>
 </ul>
 <p>These requests go through our server, which holds the DeepSeek key (it is never in the App), requires your session and limits how many can be made per day. <strong>Our server does not store or log their content.</strong> DeepSeek processes them under its own privacy policy. Your history, the balances you keep in the App and your location are never sent. You can withdraw permission at any time in Settings › Preferences and in Bank alerts › Use AI; without it, Apunta keeps working with its on-device parser.</p>
