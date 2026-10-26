@@ -59,7 +59,7 @@
 <ul>
   <li><strong>Location</strong>: if you turn on location reminders, the App detects visits to stores on your iPhone to remind you to log an expense. Location is <strong>not sent</strong> to our servers. Apple Maps is used to look up the place name.</li>
   <li><strong>Voice and photos</strong>: dictation, receipt scanning and photos are processed on your device with iOS features. Only if you turned on AI (section 4) and the on-device reader can’t understand a receipt, that photo is sent, reduced in size.</li>
-  <li><strong>Bank alerts and Apple Pay payments</strong>: messages you choose to pass to Apunta with the Shortcuts app (bank purchase alerts, Wallet payments) are read on your iPhone. If you turned on AI (section 4), Apunta may send the <strong>merchant name</strong> (for example, “AMAZON RETAIL”) to show its real name and, only when it can’t understand an alert’s format, the <strong>text of that alert</strong>. Your balances, history and account data are never sent.</li>
+  <li><strong>Bank alerts and Apple Pay payments</strong>: messages you choose to pass to Apunta with the Shortcuts app (bank purchase and income alerts, Wallet payments) are read on your iPhone first. If you turned on AI (section 4), Apunta sends the <strong>text of each alert</strong> so the AI can tell what it was, the merchant or who paid you with their real name, and the category. An alert may include whatever your bank writes in it (for example, the last digits of a card or a balance); Apunta never sends your history or the balances you keep in the App.</li>
   <li><strong>Exchange rates</strong>: to convert purchases in another currency, the App downloads today’s rates from our server. It’s a public request: it carries no data about you or your expenses.</li>
   <li><strong>Merchant logos</strong>: to show a merchant’s logo next to your expenses (for example, Rappi or Netflix), the App sends our server only the <strong>merchant’s name</strong>, its website if known and your country, without your account, amounts or dates. Our server looks the icon up on Apple’s App Store or Google’s icon service and doesn’t keep who asked. Bank logos come built into the App. You can turn this off in Settings › Preferences › Merchant logos.</li>
   <li><strong>Ask Apunta</strong> and the monthly analysis are calculated on your iPhone (Apple Intelligence when available).</li>
@@ -70,11 +70,11 @@
 <p>Apunta first interprets everything on your iPhone. Only with your permission does it use <strong>DeepSeek</strong>’s model for:</p>
 <ul>
   <li><strong>Phrases the on-device parser can’t understand</strong>: only the text you just typed is sent (for example, “coffee 6, uber 12”).</li>
-  <li><strong>Merchant names</strong>: only the merchant name of a payment or bank alert is sent, to show its real name and pick the category. The answer is remembered on your iPhone.</li>
-  <li><strong>Bank alerts in an unknown format</strong>: the text of that alert is sent.</li>
+  <li><strong>Bank alerts (purchases and income)</strong>: the text of each alert you pass to Apunta is sent, to read what it was, the merchant or who paid you and the category, even in an unknown format.</li>
+  <li><strong>Merchant names</strong> of Apple Pay payments: only the merchant name is sent, to show its real name and pick the category. The answer is remembered on your iPhone.</li>
   <li><strong>Receipts the on-device reader can’t understand</strong>: a reduced photo of the receipt and the text read on the iPhone are sent.</li>
 </ul>
-<p>These requests go through our server, which holds the DeepSeek key (it is never in the App), requires your session and limits how many can be made per day. <strong>Our server does not store or log their content.</strong> DeepSeek processes them under its own privacy policy. Your history, balances, location and account data are never sent. You can withdraw permission at any time in Settings › Preferences and in Bank alerts › Use AI; without it, Apunta keeps working with its on-device parser.</p>
+<p>These requests go through our server, which holds the DeepSeek key (it is never in the App), requires your session and limits how many can be made per day. <strong>Our server does not store or log their content.</strong> DeepSeek processes them under its own privacy policy. Your history, the balances you keep in the App and your location are never sent. You can withdraw permission at any time in Settings › Preferences and in Bank alerts › Use AI; without it, Apunta keeps working with its on-device parser.</p>
 
 <h2>5. Subscriptions</h2>
 <p>Apunta Pro purchases are processed by Apple. In couple mode, one person's subscription also enables Pro for the other. We may gift Apunta Pro to an account for a limited time (no charge, no renewal); to do so we use the account code you share with us. To enable Pro on your account and devices, we store the subscription status Apple reports to us (product, status, expiration date and original transaction ID). We do not receive your payment details.</p>
@@ -92,7 +92,7 @@
   <li><strong>Google</strong>: Google sign-in and ads (AdMob).</li>
   <li><strong>Cloudflare</strong>: network and protection for our server.</li>
   <li><strong>Hosting provider</strong> where we host our database and the encrypted backups.</li>
-  <li><strong>DeepSeek</strong>: cloud AI, only if you allow it (section 4). Through our server it receives the text, merchant name or receipt photo described above.</li>
+  <li><strong>DeepSeek</strong>: cloud AI, only if you allow it (section 4). Through our server it receives the text you type, the text of your bank alerts, the merchant name or the receipt photo described above.</li>
   <li><strong>ExchangeRate-API (open.er-api.com)</strong>: daily exchange rates. Our server requests them; it receives no data about you.</li>
   <li><strong>Apple (App Store) and Google (icon service)</strong>: merchant logos. Our server asks them using only the merchant’s name or website; they receive no data about you.</li>
   <li><strong>TikTok</strong>: measuring our ads, only if you allow tracking.</li>

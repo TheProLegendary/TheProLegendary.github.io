@@ -59,7 +59,7 @@
 <ul>
   <li><strong>Ubicación</strong>: si activas los recordatorios por ubicación, la App detecta visitas a comercios en tu iPhone para recordarte anotar un gasto. La ubicación <strong>no se envía</strong> a nuestros servidores. Para saber el nombre del lugar se usa el servicio de mapas de Apple.</li>
   <li><strong>Voz y fotos</strong>: el dictado, el escaneo de recibos y las fotos se procesan en tu dispositivo con las funciones de iOS. Solo si activaste la IA (punto 4) y el lector del iPhone no entiende un recibo, se envía esa foto, reducida.</li>
-  <li><strong>Avisos del banco y pagos con Apple Pay</strong>: los mensajes que tú decides pasarle a Apunta con la app Atajos (avisos de compra del banco, pagos de Wallet) se leen en tu iPhone. Si activaste la IA (punto 4), Apunta puede enviar el <strong>nombre del comercio</strong> (por ejemplo, «AMAZON RETAIL») para mostrarlo con su nombre real y, solo cuando no entiende el formato de un aviso, el <strong>texto de ese aviso</strong>. Nunca se envían tus saldos, tu historial ni datos de tu cuenta.</li>
+  <li><strong>Avisos del banco y pagos con Apple Pay</strong>: los mensajes que tú decides pasarle a Apunta con la app Atajos (avisos de compras e ingresos del banco, pagos de Wallet) se leen primero en tu iPhone. Si activaste la IA (punto 4), Apunta envía el <strong>texto de cada aviso</strong> para que la IA diga qué fue, el comercio o quién te pagó con su nombre real y la categoría. El aviso puede traer lo que tu banco escriba en él (por ejemplo, los últimos dígitos de la tarjeta o un saldo); Apunta nunca envía tu historial ni los saldos que guardas en la App.</li>
   <li><strong>Tasas de cambio</strong>: para convertir compras en otra moneda, la App descarga las tasas del día desde nuestro servidor. Es una consulta pública: no lleva datos tuyos ni de tus gastos.</li>
   <li><strong>Logos de comercios</strong>: para mostrar el logo de un comercio en tus gastos (por ejemplo, Rappi o Netflix), la App envía a nuestro servidor solo el <strong>nombre del comercio</strong>, su sitio web si se conoce y tu país, sin tu cuenta, montos ni fechas. Nuestro servidor busca el ícono en el App Store de Apple o en el servicio de íconos de Google y no guarda quién lo pidió. Los logos de bancos vienen dentro de la App. Puedes apagarlo en Ajustes › Preferencias › Logos de comercios.</li>
   <li><strong>Pregúntale a Apunta</strong> y el análisis del mes se calculan en tu iPhone (Apple Intelligence cuando está disponible).</li>
@@ -70,11 +70,11 @@
 <p>Apunta interpreta primero todo en tu iPhone. Solo si das tu permiso, usa el modelo de <strong>DeepSeek</strong> para:</p>
 <ul>
   <li><strong>Frases que el lector local no entiende</strong>: se envía solo el texto que acabas de escribir (por ejemplo, “café 6000, uber 12000”).</li>
-  <li><strong>Nombres de comercios</strong>: se envía solo el nombre del comercio de un pago o aviso del banco, para mostrarlo con su nombre real y elegir la categoría. La respuesta se recuerda en tu iPhone.</li>
-  <li><strong>Avisos del banco de formato desconocido</strong>: se envía el texto de ese aviso.</li>
+  <li><strong>Avisos del banco (compras e ingresos)</strong>: se envía el texto de cada aviso que le pasas a Apunta, para leer qué fue, el comercio o quien te pagó y la categoría, incluso si el formato es desconocido.</li>
+  <li><strong>Nombres de comercios</strong> de los pagos con Apple Pay: se envía solo el nombre del comercio, para mostrarlo con su nombre real y elegir la categoría. La respuesta se recuerda en tu iPhone.</li>
   <li><strong>Recibos que el lector local no entiende</strong>: se envía la foto del recibo, reducida, y el texto leído en el iPhone.</li>
 </ul>
-<p>Estas solicitudes pasan por nuestro servidor, que guarda la llave de DeepSeek (nunca está en la App), exige tu sesión y limita cuántas se hacen al día. <strong>Nuestro servidor no guarda ni registra su contenido.</strong> DeepSeek las procesa según su propia política de privacidad. Nunca se envían tu historial, tus saldos, tu ubicación ni los datos de tu cuenta. Puedes retirar el permiso cuando quieras en Ajustes › Preferencias y en Avisos del banco › Usar IA; sin él, Apunta sigue funcionando con su lector local.</p>
+<p>Estas solicitudes pasan por nuestro servidor, que guarda la llave de DeepSeek (nunca está en la App), exige tu sesión y limita cuántas se hacen al día. <strong>Nuestro servidor no guarda ni registra su contenido.</strong> DeepSeek las procesa según su propia política de privacidad. Nunca se envían tu historial, los saldos que guardas en la App ni tu ubicación. Puedes retirar el permiso cuando quieras en Ajustes › Preferencias y en Avisos del banco › Usar IA; sin él, Apunta sigue funcionando con su lector local.</p>
 
 <h2>5. Suscripciones</h2>
 <p>Las compras de Apunta Pro las procesa Apple. En el modo pareja, la suscripción de una persona también activa Pro para la otra. Podemos regalar Apunta Pro por un tiempo a una cuenta (sin cobro ni renovación); para eso usamos el código de cuenta que tú nos compartas. Para activar Pro en tu cuenta y en tus dispositivos guardamos el estado de tu suscripción (producto, estado, fecha de vencimiento e identificador de la transacción original) que nos informa Apple. No recibimos tus datos de pago.</p>
@@ -92,7 +92,7 @@
   <li><strong>Google</strong>: inicio de sesión con Google y anuncios (AdMob).</li>
   <li><strong>Cloudflare</strong>: red y protección de nuestro servidor.</li>
   <li><strong>Proveedor de servidores</strong> donde alojamos nuestra base de datos y los respaldos cifrados.</li>
-  <li><strong>DeepSeek</strong>: IA en la nube, solo si la autorizas (punto 4). Recibe, a través de nuestro servidor, el texto, el nombre del comercio o la foto del recibo descritos arriba.</li>
+  <li><strong>DeepSeek</strong>: IA en la nube, solo si la autorizas (punto 4). Recibe, a través de nuestro servidor, el texto que escribes, el texto de tus avisos del banco, el nombre del comercio o la foto del recibo descritos arriba.</li>
   <li><strong>ExchangeRate-API (open.er-api.com)</strong>: tasas de cambio del día. Las consulta nuestro servidor; no recibe datos tuyos.</li>
   <li><strong>Apple (App Store) y Google (servicio de íconos)</strong>: logos de comercios. Los consulta nuestro servidor solo con el nombre o el sitio del comercio; no reciben datos tuyos.</li>
   <li><strong>TikTok</strong>: medición de nuestros anuncios, solo si permites el rastreo.</li>
