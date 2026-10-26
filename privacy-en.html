@@ -58,13 +58,22 @@
 <h2>3. Data processed only on your device</h2>
 <ul>
   <li><strong>Location</strong>: if you turn on location reminders, the App detects visits to stores on your iPhone to remind you to log an expense. Location is <strong>not sent</strong> to our servers. Apple Maps is used to look up the place name.</li>
-  <li><strong>Voice and photos</strong>: dictation, receipt scanning and photos are processed on your device with iOS features.</li>
+  <li><strong>Voice and photos</strong>: dictation, receipt scanning and photos are processed on your device with iOS features. Only if you turned on AI (section 4) and the on-device reader can’t understand a receipt, that photo is sent, reduced in size.</li>
+  <li><strong>Bank alerts and Apple Pay payments</strong>: messages you choose to pass to Apunta with the Shortcuts app (bank purchase alerts, Wallet payments) are read on your iPhone. If you turned on AI (section 4), Apunta may send the <strong>merchant name</strong> (for example, “AMAZON RETAIL”) to show its real name and, only when it can’t understand an alert’s format, the <strong>text of that alert</strong>. Your balances, history and account data are never sent.</li>
+  <li><strong>Exchange rates</strong>: to convert purchases in another currency, the App downloads today’s rates from our server. It’s a public request: it carries no data about you or your expenses.</li>
   <li><strong>Ask Apunta</strong> and the monthly analysis are calculated on your iPhone (Apple Intelligence when available).</li>
   <li><strong>Preferences</strong> (language, currency, appearance, reminders) and the interpretation of what you type with the on-device parser.</li>
 </ul>
 
-<h2>4. Cloud AI interpretation (optional)</h2>
-<p>If the on-device parser can’t understand what you typed and you allow it, <strong>the text you just typed</strong> (for example, “coffee 6, uber 12”) is sent to <strong>DeepSeek</strong> through our Cloudflare Workers proxy to interpret it. Your history, account and device data are not sent, and the proxy does not store the text. You can withdraw this permission at any time in Settings; without it, everything is interpreted on your iPhone.</p>
+<h2>4. Cloud AI (optional)</h2>
+<p>Apunta first interprets everything on your iPhone. Only with your permission does it use <strong>DeepSeek</strong>’s model for:</p>
+<ul>
+  <li><strong>Phrases the on-device parser can’t understand</strong>: only the text you just typed is sent (for example, “coffee 6, uber 12”).</li>
+  <li><strong>Merchant names</strong>: only the merchant name of a payment or bank alert is sent, to show its real name and pick the category. The answer is remembered on your iPhone.</li>
+  <li><strong>Bank alerts in an unknown format</strong>: the text of that alert is sent.</li>
+  <li><strong>Receipts the on-device reader can’t understand</strong>: a reduced photo of the receipt and the text read on the iPhone are sent.</li>
+</ul>
+<p>These requests go through our server, which holds the DeepSeek key (it is never in the App), requires your session and limits how many can be made per day. <strong>Our server does not store or log their content.</strong> DeepSeek processes them under its own privacy policy. Your history, balances, location and account data are never sent. You can withdraw permission at any time in Settings › Preferences and in Bank alerts › Use AI; without it, Apunta keeps working with its on-device parser.</p>
 
 <h2>5. Subscriptions</h2>
 <p>Apunta Pro purchases are processed by Apple. In couple mode, one person's subscription also enables Pro for the other. We may gift Apunta Pro to an account for a limited time (no charge, no renewal); to do so we use the account code you share with us. To enable Pro on your account and devices, we store the subscription status Apple reports to us (product, status, expiration date and original transaction ID). We do not receive your payment details.</p>
@@ -80,9 +89,10 @@
 <ul>
   <li><strong>Apple</strong>: sign-in, purchases and maps.</li>
   <li><strong>Google</strong>: Google sign-in and ads (AdMob).</li>
-  <li><strong>Cloudflare</strong>: network and protection for our server and AI proxy.</li>
+  <li><strong>Cloudflare</strong>: network and protection for our server.</li>
   <li><strong>Hosting provider</strong> where we host our database and the encrypted backups.</li>
-  <li><strong>DeepSeek</strong>: only if you allow cloud AI interpretation.</li>
+  <li><strong>DeepSeek</strong>: cloud AI, only if you allow it (section 4). Through our server it receives the text, merchant name or receipt photo described above.</li>
+  <li><strong>ExchangeRate-API (open.er-api.com)</strong>: daily exchange rates. Our server requests them; it receives no data about you.</li>
   <li><strong>TikTok</strong>: measuring our ads, only if you allow tracking.</li>
 </ul>
 <p>We do not sell your data. We only share with TikTok the events described in section 6.1, and only with your permission. Our server does not keep IP addresses in its logs.</p>
@@ -116,7 +126,7 @@
 <p><strong>jhonm.moreno@gmail.com</strong></p>
 
 <hr>
-<p><em>Last updated: October 23, 2026.</em></p>
+<p><em>Last updated: October 25, 2026.</em></p>
 
 </body>
 </html>
