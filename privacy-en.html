@@ -34,7 +34,7 @@
 
 <p>This Privacy Policy describes how the <strong>Apunta</strong> app (the “App”), operated by JHON MORENO (“we”), handles and protects your information.</p>
 
-<p><strong>In short:</strong> your expenses are encrypted on your iPhone before they leave it (end-to-end encryption). We store that encrypted information to back it up and sync it, but we cannot read it. We do not sell your data. Only if you give us permission, we use the advertising identifier to learn whether you came from one of our ads on TikTok; your expenses are never shared.</p>
+<p><strong>In short:</strong> your expenses are encrypted on your iPhone before they leave it. We store that encrypted information to back it up and sync it. With standard protection we also keep a protected copy of your key so you can get your data back just by signing in; with advanced protection we don't keep it and cannot read your data. We do not sell your data. Only if you give us permission, we use the advertising identifier to learn whether you came from one of our ads on TikTok; your expenses are never shared.</p>
 
 <h2>1. Your account</h2>
 <p>To use the App you sign in with <strong>Sign in with Apple</strong> or <strong>Google</strong>. The account exists to back up your notebook in the cloud, restore it if you change or lose your iPhone and, with Apunta Pro, sync it across your devices.</p>
@@ -44,16 +44,17 @@
   <li>If you use Sign in with Apple, we store the token Apple gives us in encrypted form, only so we can revoke it when you delete your account.</li>
 </ul>
 
-<h2>2. Your financial data: end-to-end encrypted</h2>
+<h2>2. Your financial data: encrypted on your iPhone</h2>
 <ul>
-  <li><strong>Expenses, income, categories, budgets, accounts, payment methods and other records</strong> are stored on your device. When they are backed up or synced, they are encrypted on your iPhone with a key only you control (AES-GCM) before being sent.</li>
-  <li><strong>Receipt photos</strong> are stored on your device. With Apunta Pro they are included in the backup, also end-to-end encrypted.</li>
-  <li>Our server only receives encrypted data and technical metadata (size, date and number of records or files). <strong>We cannot read your expenses.</strong></li>
-  <li>Your encryption key is stored protected in your account. You can optionally create a recovery code in Settings.</li>
+  <li><strong>Expenses, income, categories, budgets, accounts, payment methods and other records</strong> are stored on your device. When they are backed up or synced, they are encrypted on your iPhone with your encryption key (AES-GCM) before being sent.</li>
+  <li><strong>Receipt photos</strong> are stored on your device. With Apunta Pro they are included in the backup, also encrypted on your iPhone.</li>
+  <li>Our server only receives encrypted data and technical metadata (size, date and number of records or files). We do not use or look at your expenses.</li>
+  <li><strong>Data protection</strong> (Settings › Account and backup). <strong>Standard</strong> (recommended): we keep a copy of your encryption key sealed with a server key that never leaves the server, so your data comes back just by signing in, even if you change iPhone or Apple ID. It is only released to your account right after you sign in, it is logged, and we notify your other devices. <strong>Advanced</strong>: we delete that copy; your data can only be opened with iCloud Keychain or your recovery code, and no one else, including us, can read it. If you lose both, we cannot recover it.</li>
+  <li>You can optionally create a recovery code in Settings.</li>
 </ul>
 
 <h2>2.1 Couple mode (shared notebook)</h2>
-<p>If you create or join a couple notebook, the shared expenses, payments between you, goals and names you add there <strong>are visible to the other person</strong> in the notebook. They are end-to-end encrypted with a key only the two of you have; our server stores only encrypted data, who the members are (their internal identifiers) and dates. The invitation is a single-use code that expires in 3 days; the server cannot open it. Your personal expenses are not shared. If you leave the notebook you stop seeing it; when both of you leave, it is deleted from the server.</p>
+<p>If you create or join a couple notebook, the shared expenses, payments between you, goals and names you add there <strong>are visible to the other person</strong> in the notebook. They are encrypted on your iPhones with a notebook key; our server stores only encrypted data, who the members are (their internal identifiers) and dates. The invitation is a single-use code that expires in 3 days; the server cannot open it. Your personal expenses are not shared. If you leave the notebook you stop seeing it; when both of you leave, it is deleted from the server.</p>
 
 <h2>3. Data processed only on your device</h2>
 <ul>
@@ -123,7 +124,7 @@
 <p>The App is not directed to children under 13. We do not knowingly collect personal information from children.</p>
 
 <h2>11. Security</h2>
-<p>We use end-to-end encryption for your financial data, HTTPS connections and encrypted storage of credentials. You can also protect the App with Face ID or your passcode.</p>
+<p>We encrypt your financial data on your iPhone before uploading it (end-to-end with advanced protection), HTTPS connections and encrypted storage of credentials. You can also protect the App with Face ID or your passcode.</p>
 
 <h2>12. Changes to this policy</h2>
 <p>We may update this policy. We will let you know about important changes by updating the effective date and, when appropriate, in the App.</p>
