@@ -32,6 +32,7 @@
     <div class="code" id="code"></div>
     <a class="btn" id="open" href="#">Abrir en Apunta</a>
     <a class="btn secondary" id="store" href="https://apps.apple.com/app/id6778129772">Descargar Apunta</a>
+    <a class="btn secondary" id="play" href="https://play.google.com/store/apps/details?id=com.jhonmoreno.apunta">Google Play</a>
     <small id="note">El código va solo en este enlace: no pasa por ningún servidor.</small>
   </div>
   <script>
@@ -50,6 +51,12 @@
       document.documentElement.lang = lang;
       ["title", "lead", "open", "store", "note"].forEach(function (id, i) { document.getElementById(id).textContent = t[i]; });
     }
+    // Cada teléfono ve su tienda; en otros equipos se muestran las dos.
+    var ua = navigator.userAgent, isAndroid = /Android/i.test(ua), isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var store = document.getElementById("store"), play = document.getElementById("play");
+    if (isAndroid) { play.textContent = store.textContent; store.remove(); }
+    else if (isIOS) { play.remove(); }
+    else { store.textContent = store.textContent + " · App Store"; play.textContent = store.textContent.replace(" · App Store", " · Google Play"); }
     document.getElementById("code").textContent = code || "—";
     var appURL = "apunta://unirse?code=" + encodeURIComponent(code);
     document.getElementById("open").href = appURL;
